@@ -3,6 +3,11 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: "jsdom", // react component testing
+  },
   staged: {
     "*": "vp check --fix",
   },
@@ -136,5 +141,4 @@ export default defineConfig({
       typeCheck: true,
     },
   },
-  plugins: [react()],
 });
