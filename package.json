@@ -8,13 +8,18 @@
     "build": "tsc && vp build",
     "lint": "vp lint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vp preview",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "amplify:sandbox": "npx ampx sandbox",
+    "amplify:delete": "npx ampx sandbox delete",
+    "amplify:pipeline-deploy": "npx ampx pipeline-deploy"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "~6.13.2",
+    "@tailwindcss/vite": "^4.2.2",
     "aws-amplify": "~6.15.10",
     "react": "~18.3.1",
-    "react-dom": "~18.3.1"
+    "react-dom": "~18.3.1",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@aws-amplify/backend": "~1.19.0",

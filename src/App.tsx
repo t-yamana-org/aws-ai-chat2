@@ -4,6 +4,24 @@ import { generateClient } from "aws-amplify/data";
 
 const client = generateClient<Schema>();
 
+function Welcome(props: { name: string }) {
+  return <h1>こんにちは、{props.name}さん</h1>;
+}
+
+interface Props {
+  name: string;
+  age: number;
+}
+
+const UserProfile: React.FC<Props> = ({ name, age }) => {
+  return (
+    <div>
+      <h2 className="text-3xl font-bold underline">{name}</h2>
+      <p>年齢: {age} 歳</p>
+    </div>
+  );
+};
+
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
@@ -20,6 +38,8 @@ function App() {
   return (
     <main>
       <h1>My todos</h1>
+      <Welcome name="Alice" />
+      <UserProfile name="Bob" age={35} />
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (

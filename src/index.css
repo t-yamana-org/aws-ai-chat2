@@ -1,3 +1,11 @@
+@import "tailwindcss";
+
+/*VSCode では Unknown at rule 警告出るが問題ない*/
+@theme {
+  --color-cream-100: #f5f0e5;
+  --color-cream-150: #efe9dc;
+}
+
 body {
   margin: 0;
   background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
