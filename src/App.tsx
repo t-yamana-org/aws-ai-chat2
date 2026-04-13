@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import { twMerge } from "tailwind-merge";
 
 const client = generateClient<Schema>();
 
@@ -22,6 +23,14 @@ const UserProfile: React.FC<Props> = ({ name, age }) => {
   );
 };
 
+function MergeTestButton({ className }: { className?: string }) {
+  return (
+    <button className={twMerge("px-4 py-2 bg-blue-500 text-white", className)}>
+      スタイルマージボタン
+    </button>
+  );
+}
+
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
@@ -40,6 +49,7 @@ function App() {
       <h1>My todos</h1>
       <Welcome name="Alice" />
       <UserProfile name="Bob" age={35} />
+      <MergeTestButton className="px-6 bg-red-500" />
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
