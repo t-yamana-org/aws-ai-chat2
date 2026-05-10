@@ -1,10 +1,13 @@
 import { defineConfig } from "vite-plus";
-import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  // プラグインについては VITE+ は不要を目指しているが自動的に解決されない時は明示する必要がある
+  plugins: [
+    // react(),  明示すると逆に esbuild の警告が出ていたので消した
+    tailwindcss(), // 明示しないとビルドされなかった
+  ],
   test: {
     globals: true,
     environment: "jsdom", // react component testing
